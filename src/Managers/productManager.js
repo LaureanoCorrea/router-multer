@@ -8,76 +8,79 @@ class ProductManager {
   }
 
   async saveProducts() {
-    // try {
-    //   const data = JSON.stringify(this.products, null, 2);
-    //   await fs.writeFile(this.path, data, 'utf-8');
-    // } catch (error) {
-    //   console.error('Error al guardar productos:', error);
-    // }
+    try {
+      const data = JSON.stringify(this.products, null, 2);
+      await fs.writeFile(this.path, data, "utf-8");
+    } catch (error) {
+      console.error("Error al guardar productos:", error);
+    }
   }
-  
+
   validateProduct(product) {
-      if (
+    if (
       !product.title ||
       !product.description ||
       !product.price ||
       !product.thumbnail ||
       !product.code ||
       !product.stock
-      ) {
+    ) {
       return "Todos los campos son obligatorios";
     }
     return null;
   }
-  
+
   async addProduct(product) {
     await this.loadProducts();
     const productValidation = this.validateProduct(product);
     if (productValidation) {
-        return productValidation;
+      return { status: "error", message: productValidation };
     }
 
     const noRepeatCode = this.products.find(
-        (prod) => prod.code === product.code
+      (prod) => prod.code === product.code
     );
     if (noRepeatCode) {
-        return "Ya existe un producto con ese código";
+      return {
+        status: "error",
+        message: "Ya existe un producto con ese código",
+      };
     }
 
     const newProduct = {
-        ...product,
-        id:
+      ...product,
+      id:
         this.products.length === 0
-        ? 1
-        : this.products[this.products.length - 1].id + 1,
+          ? 1
+          : this.products[this.products.length - 1].id + 1,
     };
     this.products.push(newProduct);
-    
-    await this.saveProducts();
-    
-    return "Producto agregado correctamente";
-}
 
-async loadProducts() {
-  return new Promise(async (resolve, reject) => {
+    await this.saveProducts();
+
+    return {
+      status: "success",
+      message: "Producto agregado correctamente",
+      product: newProduct,
+    };
+  }
+
+  async loadProducts() {
     try {
-      const data = await fs.readFile(this.path, 'utf-8');
-      this.products = JSON.parse(data) ;
-      resolve();
+      const data = await fs.readFile(this.path, "utf-8");
+      this.products = JSON.parse(data);
     } catch (error) {
-      if (error.code === 'ENOENT') {
+      if (error.code === "ENOENT") {
         await this.saveProducts();
-        resolve();
       } else {
-        console.error('Error al cargar productos:', error);
+        console.error("Error al cargar productos:", error);
         this.products = [];
-        reject(error); 
+        throw error;
       }
     }
-  });
-}
+  }
 
-getProducts() {
+  getProducts() {
     return this.products;
   }
 
@@ -118,8 +121,7 @@ getProducts() {
 }
 
 (async () => {
-  const products = new ProductManager("./data.json");
+  const products = new ProductManager("./jsonDB/products.json");
 })();
-
 
 export default ProductManager;

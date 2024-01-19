@@ -1,9 +1,10 @@
 import { Router } from "express";
-import ProductManager from "../productManager.js";
+import ProductManager from "../Managers/productManager.js";
 
 
 const router = Router();
-const products = new ProductManager("./data.json");
+
+const products = new ProductManager ("./src/jsonDB/products.json");
 
 router.get("/", async (req, res) => {
   try {
@@ -58,11 +59,8 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    res.json({
-      status: "success",
-      message: "Producto agregado",
-      data: { product: result.product },
-    });
+    res.json(result);
+    
   } catch (error) {
     res.status(500).json({ error: "Error al agregar el producto" });
   }

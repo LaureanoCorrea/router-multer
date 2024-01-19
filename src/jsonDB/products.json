@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 1
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJggSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 2
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJggoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 3
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJgggoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 4
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJgggaoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 5
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJggagaoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 6
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJggagaaoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 7
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJggaagaaoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 8
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJggaazgaaoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 9
+  },
+  {
+    "title": "Example",
+    "description": "Example",
+    "code": "AJgagaazgaaoSDJ",
+    "price": 100,
+    "status": "true",
+    "stock": 10,
+    "category": "Electronics",
+    "thumbnail": "images/_Bearded_Man-512.png",
+    "id": 10
+  }
+]

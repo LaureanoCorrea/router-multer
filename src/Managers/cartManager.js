@@ -44,14 +44,14 @@ class CartManager {
   async addProduct(cid, pid) {
     try {
       const carts = await this.readFile();
-      const cartIdx = carts.findIndex(cart => cart.id === cid);
+      const cartIdx = carts.findIndex((cart) => cart.id === cid);
 
       if (cartIdx === -1) {
         return { status: "error", message: "Carrito no encontrado" };
       }
 
       const productIdx = carts[cartIdx].products.findIndex(
-        product => product.product === pid
+        (product) => product.product === pid
       );
 
       if (productIdx === -1) {
@@ -62,7 +62,7 @@ class CartManager {
 
       await fs.writeFile(this.path, JSON.stringify(carts, null, 2), "utf-8");
 
-      return carts[cartIdx];
+      return { status: "success", cart: carts[cartIdx] };
     } catch (error) {
       return error;
     }
